@@ -7,8 +7,8 @@ import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 
 /**
- * @author 小懒虫
- * @date 2018/12/02
+ * @author yujl
+ * @date 2020/12/02
  */
 @Data
 public class DeptValid implements Serializable {

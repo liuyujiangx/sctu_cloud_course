@@ -10,8 +10,8 @@ import java.lang.reflect.InvocationTargetException;
 import java.util.List;
 
 /**
- * @author 小懒虫
- * @date 2018/10/16
+ * @author yujl
+ * @date 2020/10/16
  */
 public class LogUtil {
 

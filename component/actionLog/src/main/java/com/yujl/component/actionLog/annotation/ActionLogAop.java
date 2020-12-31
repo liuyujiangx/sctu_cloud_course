@@ -22,8 +22,8 @@ import java.lang.reflect.Method;
 
 /**
  * 行为日志注解AOP
- * @author 小懒虫
- * @date 2018/11/12
+ * @author yujl
+ * @date 2020/11/12
  */
 @Aspect
 @Component

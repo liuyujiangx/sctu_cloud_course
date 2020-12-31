@@ -3,8 +3,8 @@ package com.yujl.modules.system.repository;
 import com.yujl.modules.system.domain.Dict;
 
 /**
- * @author 小懒虫
- * @date 2018/8/14
+ * @author yujl
+ * @date 2020/8/14
  */
 public interface DictRepository extends BaseRepository<Dict, Long> {
 

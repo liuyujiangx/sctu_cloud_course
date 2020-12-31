@@ -7,8 +7,8 @@ import org.springframework.stereotype.Component;
 
 /**
  * 项目-文件上传配置项
- * @author 小懒虫
- * @date 2018/11/6
+ * @author yujl
+ * @date 2020/11/6
  */
 @Data
 @Component

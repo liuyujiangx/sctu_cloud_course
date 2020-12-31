@@ -8,8 +8,8 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.List;
 
 /**
- * @author 小懒虫
- * @date 2018/10/19
+ * @author yujl
+ * @date 2020/10/19
  */
 public interface ActionLogService {
 

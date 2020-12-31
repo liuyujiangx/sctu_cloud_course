@@ -9,8 +9,8 @@ import javax.persistence.Table;
 
 /**
  * 角色日志行为
- * @author 小懒虫
- * @date 2018/10/14
+ * @author yujl
+ * @date 2020/10/14
  */
 public class RoleAction extends BaseActionMap {
 

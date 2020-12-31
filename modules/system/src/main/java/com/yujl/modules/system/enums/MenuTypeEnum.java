@@ -4,8 +4,8 @@ import lombok.Getter;
 
 /**
  * 菜单类型枚举
- * @author 小懒虫
- * @date 2018/8/14
+ * @author yujl
+ * @date 2020/8/14
  */
 @Getter
 public enum MenuTypeEnum {

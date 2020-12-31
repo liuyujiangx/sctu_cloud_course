@@ -7,8 +7,8 @@ import java.util.Date;
 
 /**
  * 代码生成-实体类字段类型
- * @author 小懒虫
- * @date 2018/10/21
+ * @author yujl
+ * @date 2020/10/21
  */
 @Getter
 public enum FieldType {

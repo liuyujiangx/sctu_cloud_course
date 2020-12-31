@@ -18,8 +18,8 @@ import java.io.Serializable;
 import java.util.Date;
 
 /**
- * @author 小懒虫
- * @date 2018/12/02
+ * @author yujl
+ * @date 2020/12/02
  */
 @Data
 @Entity

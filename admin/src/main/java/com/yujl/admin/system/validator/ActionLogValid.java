@@ -6,8 +6,8 @@ import javax.validation.constraints.NotEmpty;
 import java.io.Serializable;
 
 /**
- * @author 小懒虫
- * @date 2018/10/19
+ * @author yujl
+ * @date 2020/10/19
  */
 @Data
 public class ActionLogValid implements Serializable {

@@ -6,7 +6,7 @@ import org.springframework.context.annotation.Configuration;
 
 /**
  * 将异常切入程序添加到异常通知器中
- * @author 小懒虫
+ * @author yujl
  * @date 2019/4/6
  */
 @Configuration

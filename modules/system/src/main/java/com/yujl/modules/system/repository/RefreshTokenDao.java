@@ -1,6 +1,6 @@
-package com.yujl.repository;
+package com.yujl.modules.system.repository;
 
-import com.yujl.domain.TbRefreshToken;
+import com.yujl.modules.system.domain.TbRefreshToken;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 

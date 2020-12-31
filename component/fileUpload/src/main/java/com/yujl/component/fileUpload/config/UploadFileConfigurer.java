@@ -8,8 +8,8 @@ import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 /**
- * @author 小懒虫
- * @date 2018/11/3
+ * @author yujl
+ * @date 2020/11/3
  */
 @Configuration
 public class UploadFileConfigurer implements WebMvcConfigurer {

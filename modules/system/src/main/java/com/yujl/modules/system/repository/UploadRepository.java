@@ -4,8 +4,8 @@ import com.yujl.modules.system.domain.Upload;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 /**
- * @author 小懒虫
- * @date 2018/11/02
+ * @author yujl
+ * @date 2020/11/02
  */
 public interface UploadRepository extends JpaRepository<Upload, Long> {
 

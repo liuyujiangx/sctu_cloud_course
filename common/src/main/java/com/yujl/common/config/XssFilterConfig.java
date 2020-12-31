@@ -12,8 +12,8 @@ import java.util.Map;
 
 /**
  * xss过滤拦截器
- * @author 小懒虫
- * @date 2018/12/9
+ * @author yujl
+ * @date 2020/12/9
  */
 @Configuration
 public class XssFilterConfig {

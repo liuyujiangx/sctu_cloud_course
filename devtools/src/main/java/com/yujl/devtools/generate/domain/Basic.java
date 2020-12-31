@@ -3,8 +3,8 @@ package com.yujl.devtools.generate.domain;
 import lombok.Data;
 
 /**
- * @author 小懒虫
- * @date 2018/10/21
+ * @author yujl
+ * @date 2020/10/21
  */
 @Data
 public class Basic {

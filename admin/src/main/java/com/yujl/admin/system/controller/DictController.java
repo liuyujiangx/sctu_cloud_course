@@ -28,8 +28,8 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 /**
- * @author 小懒虫
- * @date 2018/8/14
+ * @author yujl
+ * @date 2020/8/14
  */
 @Controller
 @RequestMapping("/system/dict")

@@ -13,8 +13,8 @@ import javax.persistence.Table;
 /**
  * 通用：记录保存数据的行为
  *
- * @author 小懒虫
- * @date 2018/10/14
+ * @author yujl
+ * @date 2020/10/14
  */
 @Slf4j
 public class SaveAction extends BaseActionMap {

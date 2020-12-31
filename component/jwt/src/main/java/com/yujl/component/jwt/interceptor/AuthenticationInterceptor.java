@@ -28,7 +28,7 @@ import java.util.Set;
 
 /**
  * jwt权限拦截器
- * @author 小懒虫
+ * @author yujl
  * @date 2019/4/12
  */
 @Slf4j

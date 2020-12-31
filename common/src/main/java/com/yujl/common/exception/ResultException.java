@@ -6,8 +6,8 @@ import lombok.Getter;
 
 /**
  * 自定义异常对象
- * @author 小懒虫
- * @date 2018/8/14
+ * @author yujl
+ * @date 2020/8/14
  */
 @Getter
 public class ResultException extends RuntimeException {
@@ -42,4 +42,6 @@ public class ResultException extends RuntimeException {
         this.code = code;
     }
 
+    public ResultException(ResultInterface resultEnum, String tokenMd5) {
+    }
 }

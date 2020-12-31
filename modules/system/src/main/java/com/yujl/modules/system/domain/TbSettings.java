@@ -1,4 +1,4 @@
-package com.yujl.domain;
+package com.yujl.modules.system.domain;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;

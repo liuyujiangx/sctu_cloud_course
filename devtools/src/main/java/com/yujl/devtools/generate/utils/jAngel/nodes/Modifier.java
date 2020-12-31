@@ -2,7 +2,7 @@ package com.yujl.devtools.generate.utils.jAngel.nodes;
 
 /**
  * 变量修饰符
- * @author 小懒虫
+ * @author yujl
  * @date 2019/3/28
  */
 public class Modifier extends Node{

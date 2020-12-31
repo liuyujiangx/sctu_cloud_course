@@ -16,8 +16,8 @@ import java.util.List;
 
 /**
  * 用户日志行为
- * @author 小懒虫
- * @date 2018/10/14
+ * @author yujl
+ * @date 2020/10/14
  */
 public class UserAction extends BaseActionMap {
 

@@ -6,8 +6,8 @@ import com.yujl.component.actionLog.action.model.SystemMethod;
 import com.yujl.modules.system.domain.ActionLog;
 
 /**
- * @author 小懒虫
- * @date 2018/10/19
+ * @author yujl
+ * @date 2020/10/19
  */
 public class SystemAction extends BaseActionMap {
 

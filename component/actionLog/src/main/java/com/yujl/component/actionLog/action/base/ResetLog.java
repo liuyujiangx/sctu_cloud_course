@@ -20,8 +20,8 @@ import java.util.regex.Pattern;
 
 /**
  * 自定义日志数据
- * @author 小懒虫
- * @date 2018/10/14
+ * @author yujl
+ * @date 2020/10/14
  */
 @Data
 public class ResetLog {

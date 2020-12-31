@@ -7,7 +7,7 @@ import java.lang.annotation.Target;
 
 /**
  * 忽略jwt权限验证注解（只在拦截的地址内有效）
- * @author 小懒虫
+ * @author yujl
  * @date 2019/4/14
  */
 @Retention(RetentionPolicy.RUNTIME)

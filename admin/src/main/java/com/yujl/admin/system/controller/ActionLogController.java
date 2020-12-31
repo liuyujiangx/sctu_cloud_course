@@ -14,8 +14,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 /**
- * @author 小懒虫
- * @date 2018/10/19
+ * @author yujl
+ * @date 2020/10/19
  */
 @Controller
 @RequestMapping("/system/actionLog")

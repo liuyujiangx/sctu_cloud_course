@@ -8,7 +8,7 @@ import java.util.List;
 
 /**
  * 异常通知器
- * @author 小懒虫
+ * @author yujl
  * @date 2019/4/5
  */
 @ControllerAdvice

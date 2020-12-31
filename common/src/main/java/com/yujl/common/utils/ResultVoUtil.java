@@ -6,8 +6,8 @@ import com.yujl.common.vo.ResultVo;
 /**
  * 响应数据(结果)最外层对象工具
  *
- * @author 小懒虫
- * @date 2018/10/15
+ * @author yujl
+ * @date 2020/10/15
  */
 public class ResultVoUtil {
 

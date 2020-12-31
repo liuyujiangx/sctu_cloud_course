@@ -2,7 +2,7 @@ package com.yujl.devtools.generate.utils;
 
 /**
  * 代码操作工具
- * @author 小懒虫
+ * @author yujl
  * @date 2019/3/26
  */
 public class CodeUtil {

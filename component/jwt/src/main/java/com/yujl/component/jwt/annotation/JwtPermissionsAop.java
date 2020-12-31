@@ -31,7 +31,7 @@ import java.util.Set;
 
 /**
  * Jwt权限注解AOP
- * @author 小懒虫
+ * @author yujl
  * @date 2019/4/13
  */
 @Slf4j
@@ -64,6 +64,7 @@ public class JwtPermissionsAop {
         try {
             Claims claims = JwtUtils.parseJWT(token);
             User user = userService.getByName((String) claims.get("userName"));
+            log.info("userName"+claims.get("userName"));
             Set<Role> roles;
             try {
                 roles = (Set<Role>) redisUtil.get("user-role-perms"+user.getId());

@@ -15,8 +15,8 @@ import java.util.Objects;
 
 /**
  * 全局统一异常处理
- * @author 小懒虫
- * @date 2018/8/14
+ * @author yujl
+ * @date 2020/8/14
  */
 @ControllerAdvice
 @Slf4j

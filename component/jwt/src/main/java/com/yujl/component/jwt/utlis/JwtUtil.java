@@ -6,43 +6,54 @@ import com.auth0.jwt.algorithms.Algorithm;
 import com.auth0.jwt.exceptions.JWTVerificationException;
 import com.auth0.jwt.exceptions.TokenExpiredException;
 import com.yujl.common.exception.ResultException;
-import com.yujl.common.utils.Constans;
-import com.yujl.common.utils.HttpServletUtil;
-import com.yujl.common.utils.RedisUtil;
-import com.yujl.common.utils.ToolUtil;
+import com.yujl.common.utils.*;
 import com.yujl.component.jwt.config.properties.JwtProjectProperties;
 import com.yujl.component.jwt.enums.JwtResultEnums;
+import com.yujl.modules.system.domain.TbRefreshToken;
 import com.yujl.modules.system.domain.User;
+import com.yujl.modules.system.repository.RefreshTokenDao;
+import com.yujl.modules.system.repository.UserRepository;
+import com.yujl.modules.system.utils.ClaimsUtil;
+import io.jsonwebtoken.ExpiredJwtException;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import org.springframework.util.DigestUtils;
 
 import javax.annotation.PostConstruct;
 import javax.servlet.http.HttpServletRequest;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.Map;
 
 /**
- * @author 小懒虫
+ * @author yujl
  * @date 2019/4/9
  */
 @Component
 @Slf4j
 public class JwtUtil {
+    private static final SnowflakeIdWorker idWorker = new SnowflakeIdWorker(0, 0);
 
     @Autowired
     private JwtProjectProperties jwtProjectProperties;
 
     @Autowired
-    private  RedisUtil redisUtil;
+    private RedisUtil redisUtil;
 
     private static JwtUtil jwtUtil;
+    @Autowired
+    private RefreshTokenDao refreshTokenDao;
+    @Autowired
+    private UserRepository userRepository;
 
     @PostConstruct
     public void init() {
         jwtUtil = this;
         jwtUtil.jwtProjectProperties = jwtProjectProperties;
         jwtUtil.redisUtil = redisUtil;
+        jwtUtil.refreshTokenDao = refreshTokenDao;
+        jwtUtil.userRepository = userRepository;
     }
 
     /**
@@ -101,7 +112,52 @@ public class JwtUtil {
         }
         String token = (String) jwtUtil.redisUtil.get(Constans.User.KEY_TOKEN + authorization);
         if (token == null) {
-            throw new ResultException(JwtResultEnums.TOKEN_EXPIRED);
+            TbRefreshToken refreshToken = jwtUtil.refreshTokenDao.findOneByTokenKey(authorization);
+            log.info("refreshToken------>" + refreshToken);
+            //2、如果不存在，就是没有登录，则提示用户登录
+            if (refreshToken == null) {
+                throw new ResultException(JwtResultEnums.TOKEN_EXPIRED);
+            }
+            //3、如果存在就解析refreshToken
+            try {
+                JwtUtils.parseJWT(refreshToken.getRefreshToken());
+            } catch (Exception e) {
+                log.info("解析refreshToken："+e.getMessage());
+                //如果refreshToken过期了，提示用户登录
+                throw new ResultException(JwtResultEnums.TOKEN_EXPIRED);
+            }
+            //如果refreshToken有效，则创建新的token和refreshToken
+            Long userId = refreshToken.getUserId();
+            User userFromDb = jwtUtil.userRepository.findOneById(userId);
+            //删掉refreshToken的记录
+            jwtUtil.refreshTokenDao.deleteById(refreshToken.getId());
+            //String newTokenKey = JwtUtil.creatToken(userFromDb);
+            int resultDelete = jwtUtil.refreshTokenDao.deleteAllByUserId(userFromDb.getId());
+            Map<String, Object> claims = ClaimsUtil.tbUser2Claims(userFromDb);
+            String newToken = JwtUtils.createToken(claims);
+
+            //返回token的md5值
+            //前端访问的时候，携带token的md5key，从redis中获取即可
+            String tokenMd5 = DigestUtils.md5DigestAsHex(newToken.getBytes());
+
+            //把token写到redis里，有效期两小时
+            jwtUtil.redisUtil.set(Constans.User.KEY_TOKEN + tokenMd5, newToken, 2 * Constans.TimeValue.HOUR);
+
+            //把tokenKey写到cookies里去
+            //CookieUtil.setUpCookie(response, Constans.User.COOKIE_TOKEN_KEY, tokenMd5);
+            //生成refreshtoken
+            String refreshTokenValue = JwtUtils.createRefreshToken(String.valueOf(userFromDb.getId()), Constans.TimeValue.MONTH);
+            //保存到数据库里
+            TbRefreshToken refreshToken1 = new TbRefreshToken();
+            refreshToken.setId(idWorker.nextId());
+            refreshToken.setRefreshToken(refreshTokenValue);
+            refreshToken.setUserId(userFromDb.getId());
+            refreshToken.setTokenKey(tokenMd5);
+            refreshToken.setCreateTime(new Date());
+            refreshToken.setUpdateTime(new Date());
+            jwtUtil.refreshTokenDao.save(refreshToken);
+            //返回token
+            throw new ResultException(302,tokenMd5);
         }
         log.info("token------>" + token);
         return token;

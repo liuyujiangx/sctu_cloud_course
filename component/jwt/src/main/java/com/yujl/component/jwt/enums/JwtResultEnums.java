@@ -5,7 +5,7 @@ import lombok.Getter;
 
 /**
  * jwt结果集枚举
- * @author 小懒虫
+ * @author yujl
  * @date 2019/4/13
  */
 @Getter
@@ -16,6 +16,7 @@ public enum JwtResultEnums implements ResultInterface {
      */
     TOKEN_ERROR(301, "token无效"),
     TOKEN_EXPIRED(302, "token已过期"),
+    NEW_TOKEN(302, "已更新token"),
 
     /**
      * 账号问题

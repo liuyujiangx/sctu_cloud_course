@@ -6,8 +6,8 @@ import com.yujl.component.actionLog.action.model.BusinessType;
 import java.util.HashMap;
 
 /**
- * @author 小懒虫
- * @date 2018/10/14
+ * @author yujl
+ * @date 2020/10/14
  */
 public abstract class BaseActionMap {
 

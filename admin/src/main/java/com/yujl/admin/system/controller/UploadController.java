@@ -18,8 +18,8 @@ import java.io.IOException;
 import java.security.NoSuchAlgorithmException;
 
 /**
- * @author 小懒虫
- * @date 2018/11/02
+ * @author yujl
+ * @date 2020/11/02
  */
 @Controller
 public class UploadController {

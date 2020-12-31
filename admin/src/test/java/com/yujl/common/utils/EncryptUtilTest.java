@@ -9,7 +9,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 /**
  * 密码加密测试类，可用于重置密码
- * @author 小懒虫
+ * @author yujl
  * @date 2019/4/27
  */
 @RunWith(SpringRunner.class)

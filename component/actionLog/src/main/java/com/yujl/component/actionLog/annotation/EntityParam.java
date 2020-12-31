@@ -4,7 +4,7 @@ import java.lang.annotation.*;
 
 /**
  * 控制器实体参数注解
- * @author 小懒虫
+ * @author yujl
  * @date 2019/2/25
  */
 @Retention(RetentionPolicy.RUNTIME)

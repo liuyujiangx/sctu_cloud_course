@@ -3,8 +3,8 @@ package com.yujl.modules.system.service;
 import com.yujl.modules.system.domain.Upload;
 
 /**
- * @author 小懒虫
- * @date 2018/11/02
+ * @author yujl
+ * @date 2020/11/02
  */
 public interface UploadService {
 

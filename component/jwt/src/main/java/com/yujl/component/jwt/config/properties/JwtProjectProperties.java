@@ -6,7 +6,7 @@ import org.springframework.context.annotation.Configuration;
 
 /**
  * jwt配置项
- * @author 小懒虫
+ * @author yujl
  * @date 2019/4/13
  */
 @Data

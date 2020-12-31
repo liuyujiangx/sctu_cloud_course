@@ -5,8 +5,8 @@ import lombok.Getter;
 
 /**
  * 数据状态枚举-用于逻辑删除控制
- * @author 小懒虫
- * @date 2018/8/14
+ * @author yujl
+ * @date 2020/8/14
  */
 @Getter
 public enum StatusEnum {

@@ -18,8 +18,8 @@ import java.util.Set;
 
 /**
  * 根据字典标识生成下拉列表
- * @author 小懒虫
- * @date 2018/8/14
+ * @author yujl
+ * @date 2020/8/14
  */
 public class SelectDictAttrProcessor extends AbstractAttributeTagProcessor {
 

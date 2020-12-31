@@ -8,8 +8,8 @@ import org.springframework.data.jpa.repository.Query;
 import java.util.List;
 
 /**
- * @author 小懒虫
- * @date 2018/12/02
+ * @author yujl
+ * @date 2020/12/02
  */
 public interface DeptRepository extends BaseRepository<Dept, Long> {
 

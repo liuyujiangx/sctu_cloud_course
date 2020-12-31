@@ -3,8 +3,8 @@ package com.yujl.component.actionLog.action.model;
 import lombok.Getter;
 
 /**
- * @author 小懒虫
- * @date 2018/10/15
+ * @author yujl
+ * @date 2020/10/15
  */
 @Getter
 public class ActionModel {

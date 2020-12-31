@@ -6,7 +6,7 @@ import com.yujl.component.actionLog.annotation.ActionLog;
 
 /**
  * 运行时抛出的异常进行日志记录
- * @author 小懒虫
+ * @author yujl
  * @date 2019/4/6
  */
 public class ActionLogProceedAdvice implements ExceptionAdvice {

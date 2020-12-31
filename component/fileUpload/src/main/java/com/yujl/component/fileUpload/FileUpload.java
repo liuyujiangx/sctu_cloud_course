@@ -24,8 +24,8 @@ import java.util.UUID;
 
 /**
  * 文件上传处理工具
- * @author 小懒虫
- * @date 2018/11/4
+ * @author yujl
+ * @date 2020/11/4
  */
 public class FileUpload {
 

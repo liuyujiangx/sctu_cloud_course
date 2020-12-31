@@ -2,7 +2,7 @@ package com.yujl.common.exception.interfaces;
 
 /**
  * 结果枚举接口
- * @author 小懒虫
+ * @author yujl
  * @date 2019/2/13
  */
 public interface ResultInterface {
