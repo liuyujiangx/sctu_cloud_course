@@ -4,8 +4,6 @@ import com.yujl.component.shiro.AuthRealm;
 import com.yujl.component.shiro.UserAuthFilter;
 import com.yujl.component.shiro.config.properties.ShiroProjectProperties;
 import com.yujl.component.shiro.remember.RememberMeManager;
-import net.sf.ehcache.CacheManager;
-import org.apache.shiro.cache.ehcache.EhCacheManager;
 import org.apache.shiro.codec.Base64;
 import org.apache.shiro.spring.security.interceptor.AuthorizationAttributeSourceAdvisor;
 import org.apache.shiro.spring.web.ShiroFilterFactoryBean;
@@ -18,6 +16,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.util.StringUtils;
 
 import javax.servlet.Filter;
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
 
@@ -27,6 +26,7 @@ import java.util.LinkedHashMap;
  */
 @Configuration
 public class ShiroConfig {
+
 
     @Bean
     public ShiroFilterFactoryBean getShiroFilterFactoryBean(DefaultWebSecurityManager securityManager,
@@ -84,12 +84,10 @@ public class ShiroConfig {
 
     @Bean
     public DefaultWebSecurityManager getDefaultWebSecurityManager(AuthRealm authRealm,
-                                                                  EhCacheManager cacheManager,
                                                                   DefaultWebSessionManager sessionManager,
                                                                   CookieRememberMeManager rememberMeManager) {
         DefaultWebSecurityManager securityManager = new DefaultWebSecurityManager();
         securityManager.setRealm(authRealm);
-        securityManager.setCacheManager(cacheManager);
         securityManager.setSessionManager(sessionManager);
         securityManager.setRememberMeManager(rememberMeManager);
         return securityManager;
@@ -99,29 +97,17 @@ public class ShiroConfig {
      * 自定义的Realm
      */
     @Bean
-    public AuthRealm getRealm(EhCacheManager ehCacheManager) {
-        AuthRealm authRealm = new AuthRealm();
-        authRealm.setCacheManager(ehCacheManager);
-        return authRealm;
+    public AuthRealm getRealm() {
+        return new AuthRealm();
     }
 
-    /**
-     * 缓存管理器-使用Ehcache实现缓存
-     */
-    @Bean
-    public EhCacheManager ehCacheManager(CacheManager cacheManager) {
-        EhCacheManager ehCacheManager = new EhCacheManager();
-        ehCacheManager.setCacheManager(cacheManager);
-        return ehCacheManager;
-    }
 
     /**
      * session管理器
      */
     @Bean
-    public DefaultWebSessionManager getDefaultWebSessionManager(EhCacheManager cacheManager, ShiroProjectProperties properties) {
+    public DefaultWebSessionManager getDefaultWebSessionManager(ShiroProjectProperties properties) {
         DefaultWebSessionManager sessionManager = new DefaultWebSessionManager();
-        sessionManager.setCacheManager(cacheManager);
         sessionManager.setGlobalSessionTimeout(properties.getGlobalSessionTimeout() * 1000);
         sessionManager.setSessionValidationInterval(properties.getSessionValidationInterval() * 1000);
         sessionManager.setDeleteInvalidSessions(true);

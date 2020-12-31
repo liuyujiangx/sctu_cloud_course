@@ -5,26 +5,21 @@ import com.auth0.jwt.exceptions.TokenExpiredException;
 import com.yujl.common.constant.AdminConst;
 import com.yujl.common.enums.StatusEnum;
 import com.yujl.common.exception.ResultException;
+import com.yujl.common.utils.JwtUtils;
 import com.yujl.common.utils.RedisUtil;
 import com.yujl.component.jwt.config.properties.JwtProjectProperties;
 import com.yujl.component.jwt.enums.JwtResultEnums;
 import com.yujl.component.jwt.utlis.JwtUtil;
-import com.yujl.component.shiro.ShiroUtil;
-import com.yujl.modules.api.utils.ClaimsUtil;
-import com.yujl.modules.api.utils.JwtUtils;
 import com.yujl.modules.system.domain.Menu;
 import com.yujl.modules.system.domain.Role;
 import com.yujl.modules.system.domain.User;
 import com.yujl.modules.system.service.impl.UserServiceImpl;
 import io.jsonwebtoken.Claims;
 import lombok.extern.slf4j.Slf4j;
-import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.ProceedingJoinPoint;
-import org.aspectj.lang.Signature;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Pointcut;
-import org.aspectj.lang.reflect.MethodSignature;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.stereotype.Component;
@@ -32,7 +27,6 @@ import org.springframework.util.StringUtils;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
-import java.lang.reflect.Method;
 import java.util.Set;
 
 /**
