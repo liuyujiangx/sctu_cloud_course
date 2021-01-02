@@ -1,6 +1,7 @@
 package com.yujl.component.fileUpload;
 
 import com.yujl.common.exception.ResultException;
+import com.yujl.common.utils.JwtUtils;
 import com.yujl.common.utils.SpringContextUtil;
 import com.yujl.common.utils.ToolUtil;
 import com.yujl.component.fileUpload.config.properties.UploadProjectProperties;

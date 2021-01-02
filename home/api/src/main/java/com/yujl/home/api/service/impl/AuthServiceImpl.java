@@ -1,18 +1,17 @@
-package com.yujl.service.impl;
+package com.yujl.home.api.service.impl;
 
 import com.google.gson.Gson;
 import com.wf.captcha.SpecCaptcha;
 import com.wf.captcha.base.Captcha;
 import com.yujl.common.utils.*;
 import com.yujl.component.jwt.utlis.JwtUtil;
-import com.yujl.component.shiro.ShiroUtil;
 import com.yujl.modules.system.domain.TbRefreshToken;
 import com.yujl.modules.system.domain.TbSettings;
 import com.yujl.modules.system.utils.ClaimsUtil;
 import com.yujl.modules.system.repository.RefreshTokenDao;
 import com.yujl.modules.system.repository.SettingsDao;
-import com.yujl.response.ResponseResult;
-import com.yujl.service.AuthService;
+import com.yujl.home.api.response.ResponseResult;
+import com.yujl.home.api.service.AuthService;
 import com.yujl.modules.system.domain.User;
 import com.yujl.modules.system.repository.UserRepository;
 import io.jsonwebtoken.Claims;
@@ -90,8 +89,8 @@ public class AuthServiceImpl implements AuthService {
         //user.setCreateTime(new Date());
         //user.setUpdateTime(new Date());
         //对密码进行加密
-        String salt = ShiroUtil.getRandomSalt();
-        String encrypt = ShiroUtil.encrypt(user.getPassword(), salt);
+        String salt = PwdUtils.getRandomSalt();
+        String encrypt = PwdUtils.encrypt(user.getPassword(), salt);
         user.setPassword(encrypt);
         //保存到数据库中
         userDao.save(user);
@@ -153,7 +152,7 @@ public class AuthServiceImpl implements AuthService {
      *@Description 获取邮箱验证码
      *@Date 20:16 2020/12/29
      *@Param [type(register--->注册,forget----->忘记密码), email]
-     *@return com.yujl.response.ResponseResult
+     *@return com.yujl.home.api.response.ResponseResult
      **/
     @Override
     public ResponseResult sendEmail(String type, String email) {
@@ -268,8 +267,8 @@ public class AuthServiceImpl implements AuthService {
         if (TextUtils.isEmpty(password)) {
             return ResponseResult.FAILED("密码不能为空");
         }
-        String salt = ShiroUtil.getRandomSalt();
-        String encrypt = ShiroUtil.encrypt(user.getPassword(), salt);
+        String salt = PwdUtils.getRandomSalt();
+        String encrypt = PwdUtils.encrypt(user.getPassword(), salt);
         user.setPassword(encrypt);
         user.setPicture(Constans.User.DEFAULT_AVATAR);
         userDao.save(user);

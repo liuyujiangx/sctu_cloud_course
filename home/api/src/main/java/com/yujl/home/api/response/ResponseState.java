@@ -1,4 +1,4 @@
-package com.yujl.response;
+package com.yujl.home.api.response;
 
 public enum  ResponseState {
     SUCCESS(20000,"操作成功",true),

@@ -1,11 +1,11 @@
-package com.yujl.controller;
+package com.yujl.home.api.controller;
 
 
 import com.yujl.component.jwt.annotation.IgnorePermissions;
 import com.yujl.component.jwt.annotation.JwtPermissions;
 
-import com.yujl.response.ResponseResult;
-import com.yujl.service.impl.AuthServiceImpl;
+import com.yujl.home.api.response.ResponseResult;
+import com.yujl.home.api.service.impl.AuthServiceImpl;
 import com.yujl.modules.system.domain.User;
 import io.swagger.annotations.*;
 import lombok.extern.slf4j.Slf4j;
@@ -65,7 +65,7 @@ public class AuthController {
     *@Description 登录
     *@Date 16:00 2020/12/29
     *@Param [username, password, captcha, captchaKey]
-    *@return com.yujl.response.ResponseResult
+    *@return com.yujl.home.api.response.ResponseResult
     **/
     @IgnorePermissions
     @PostMapping("/login")

@@ -28,7 +28,7 @@ public class ApiSwaggerConfig {
                 .groupName("API接口")
                 .apiInfo(apiInfo())
                 .select()
-                .apis(RequestHandlerSelectors.basePackage("com.yujl.admin.api"))
+                .apis(RequestHandlerSelectors.basePackage("com.yujl.home.api"))
                 .paths(PathSelectors.any())
                 .build();
     }

@@ -17,7 +17,7 @@
         <module>component</module>
         <module>devtools</module>
         <module>modules</module>
-        <module>webapi</module>
+        <module>home</module>
     </modules>
 
     <parent>

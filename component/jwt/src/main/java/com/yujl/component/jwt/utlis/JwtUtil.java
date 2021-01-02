@@ -14,7 +14,6 @@ import com.yujl.modules.system.domain.User;
 import com.yujl.modules.system.repository.RefreshTokenDao;
 import com.yujl.modules.system.repository.UserRepository;
 import com.yujl.modules.system.utils.ClaimsUtil;
-import io.jsonwebtoken.ExpiredJwtException;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -108,7 +107,7 @@ public class JwtUtil {
         String authorization = request.getHeader("Authorization");
         log.info("tokenKey(authorization)------>" + authorization);
         if (authorization == null) {
-            throw new ResultException(JwtResultEnums.TOKEN_ERROR);
+            throw new ResultException(JwtResultEnums.TOKEN_NOT_FOUND);
         }
         String token = (String) jwtUtil.redisUtil.get(Constans.User.KEY_TOKEN + authorization);
         if (token == null) {

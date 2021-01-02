@@ -1,4 +1,4 @@
-package com.yujl.response;
+package com.yujl.home.api.response;
 
 public class ResponseResult {
     private boolean success;

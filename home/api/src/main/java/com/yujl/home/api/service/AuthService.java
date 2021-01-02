@@ -1,6 +1,6 @@
-package com.yujl.service;
+package com.yujl.home.api.service;
 
-import com.yujl.response.ResponseResult;
+import com.yujl.home.api.response.ResponseResult;
 import com.yujl.modules.system.domain.User;
 
 import java.awt.*;

@@ -1,4 +1,4 @@
-package com.yujl.controller;
+package com.yujl.home.api.controller;
 
 import com.yujl.common.utils.ResultVoUtil;
 import com.yujl.common.vo.ResultVo;

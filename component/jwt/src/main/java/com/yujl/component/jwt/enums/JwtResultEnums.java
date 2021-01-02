@@ -17,6 +17,7 @@ public enum JwtResultEnums implements ResultInterface {
     TOKEN_ERROR(301, "token无效"),
     TOKEN_EXPIRED(302, "token已过期"),
     NEW_TOKEN(302, "已更新token"),
+    TOKEN_NOT_FOUND(303,"未登录"),
 
     /**
      * 账号问题
