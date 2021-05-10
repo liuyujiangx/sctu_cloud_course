@@ -43,7 +43,7 @@
 
   - 通过Java应用方式运行admin模块下的com.yujl.BootApplication.java文件
   - 数据库配置：数据库名称timo   用户root    密码root
-  - 访问地址：http://localhost:8080/
+  - 访问地址：http://sctu.yujl.top
   - 默认帐号密码：admin/123456
 
 #### 更新记录
